@@ -57,7 +57,7 @@ export function Header() {
             </motion.button>
           </TransitionLink>
 
-          <TransitionLink href="/login">
+          <TransitionLink href="https://dash.cipherscore.xyz">
             <motion.button
               className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold py-2 px-5 rounded-full hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300"
               whileHover={{ scale: 1.05 }}
