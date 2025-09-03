@@ -46,7 +46,7 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <TransitionLink href="/docs">
+          <TransitionLink href="https://dash.CipherScore.xyz/docs">
             <motion.button
               className="hidden sm:flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium py-2 px-4 rounded-full hover:bg-white/20 transition-all duration-300"
               whileHover={{ scale: 1.05 }}

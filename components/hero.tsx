@@ -77,7 +77,7 @@ export function Hero() {
         </motion.p>
 
         <div className="hero-buttons flex flex-col sm:flex-row gap-4 mb-12">
-          <TransitionLink href="/login">
+          <TransitionLink href="https://dash.cipherScore.xyz">
             <motion.button
               className="flex items-center gap-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/25"
               whileHover={{ scale: 1.05, transition: { type: "spring", stiffness: 300 } }}
@@ -88,7 +88,7 @@ export function Hero() {
             </motion.button>
           </TransitionLink>
 
-          <TransitionLink href="/docs">
+          <TransitionLink href="https://dash.cipherScore.xyz/docs">
             <motion.button
               className="flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 hover:bg-white/20 hover:shadow-lg hover:shadow-white/10"
               whileHover={{ scale: 1.05, transition: { type: "spring", stiffness: 300 } }}
