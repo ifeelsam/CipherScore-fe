@@ -43,7 +43,7 @@ export function Hero() {
     { scope: container },
   )
 
-  const title = "Encrypted Credit Scores for Web3 Builders"
+  const title = "Encrypted Credit Scores for DeFi Protocols"
   const splitTitle = title.split(" ").map((word, i) => (
     <span key={i} className="inline-block overflow-hidden">
       <span className="inline-block">{word}&nbsp;</span>

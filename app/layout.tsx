@@ -13,7 +13,10 @@ export const metadata: Metadata = {
   title: "CipherScore - Privacy-Preserving Credit Scores for Web3",
   description:
     "Encrypted credit scoring API for Web3 developers. Compute privacy-first scores via MPC—no raw data ever leaves the wallet.",
-    generator: 'v0.app'
+    generator: 'v0.app',
+    icons: {
+      icon: "/favicon.png",
+    }
 }
 
 export default function RootLayout({
