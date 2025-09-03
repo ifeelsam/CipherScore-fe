@@ -24,8 +24,8 @@ export function Header() {
     <motion.header ref={headerRef} className="fixed top-0 left-0 right-0 z-50 p-4">
       <div className="container mx-auto flex justify-between items-center bg-black/20 backdrop-blur-md border border-white/10 p-4 rounded-full">
         <TransitionLink href="/" className="text-white font-bold text-xl flex items-center gap-2">
-          <div className="w-8 h-8 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-sm">CS</span>
+          <div className="w-8 h-8 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center">
+            <span className="text-white font-bold text-sm">C</span>
           </div>
           CipherScore
         </TransitionLink>
