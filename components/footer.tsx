@@ -25,18 +25,18 @@ export function Footer() {
         </TransitionLink>
         <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center">
           <p className="text-neutral-400">
-            &copy; {new Date().getFullYear()} Innovate. Create. Inspire. All rights reserved.
+            &copy; {new Date().getFullYear()} CipherScore. All rights reserved.
           </p>
           <div className="flex gap-6 mt-4 md:mt-0">
-            <TransitionLink href="#" className="text-neutral-400 hover:text-white">
-              Twitter
+            <TransitionLink href="https://x.com/cipherscore" className="text-neutral-400 hover:text-white">
+              X (Twitter)
             </TransitionLink>
-            <TransitionLink href="#" className="text-neutral-400 hover:text-white">
-              Instagram
-            </TransitionLink>
-            <TransitionLink href="#" className="text-neutral-400 hover:text-white">
+            {/* <TransitionLink href="https://www.linkedin.com/company/cipherscore/" className="text-neutral-400 hover:text-white">
               LinkedIn
             </TransitionLink>
+            <TransitionLink href="https://www.instagram.com/cipherscore/" className="text-neutral-400 hover:text-white">
+              Instagram
+            </TransitionLink> */}
           </div>
         </div>
       </div>
