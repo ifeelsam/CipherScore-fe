@@ -6,9 +6,10 @@ import { motion } from "framer-motion"
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
 import { Scene } from "@/components/scene"
-import { TransitionLink } from "@/components/transition-link"
 import { ArrowRight, FileText, Network, ShieldCheck, Sparkles } from "lucide-react"
-import { heroContent, landingLinks } from "@/lib/landing-content"
+import { heroContent } from "@/lib/landing-content"
+import { WaitlistTrigger } from "@/components/waitlist-trigger"
+import { WhitepaperComingSoon } from "@/components/whitepaper-coming-soon"
 
 export function Hero() {
   const container = useRef(null)
@@ -78,27 +79,21 @@ export function Hero() {
         </motion.p>
 
         <div className="hero-buttons flex flex-col sm:flex-row gap-3 mb-10">
-          <TransitionLink href={landingLinks.earlyAccess}>
-            <motion.button
-              className="flex items-center justify-center gap-2.5 bg-gradient-to-r from-cyan-500 to-blue-600 text-sm md:text-base text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/25"
-              whileHover={{ scale: 1.05, transition: { type: "spring", stiffness: 300 } }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <ArrowRight size={18} />
-              Request Early Access
-            </motion.button>
-          </TransitionLink>
+          <motion.div whileHover={{ scale: 1.05, transition: { type: "spring", stiffness: 300 } }} whileTap={{ scale: 0.95 }}>
+            <WaitlistTrigger
+              buttonClassName="flex items-center justify-center gap-2.5 bg-gradient-to-r from-cyan-500 to-blue-600 text-sm md:text-base text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/25"
+              label="Request Early Access"
+              icon={<ArrowRight size={18} />}
+            />
+          </motion.div>
 
-          <TransitionLink href={landingLinks.whitepaper}>
-            <motion.button
+          <motion.div whileHover={{ scale: 1.05, transition: { type: "spring", stiffness: 300 } }} whileTap={{ scale: 0.95 }}>
+            <WhitepaperComingSoon
               className="flex items-center justify-center gap-2.5 bg-white/10 backdrop-blur-sm border border-white/20 text-sm md:text-base text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 hover:bg-white/20 hover:shadow-lg hover:shadow-white/10"
-              whileHover={{ scale: 1.05, transition: { type: "spring", stiffness: 300 } }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <FileText size={18} />
-              Read the Whitepaper
-            </motion.button>
-          </TransitionLink>
+              label="Whitepaper Coming Soon"
+              icon={<FileText size={18} />}
+            />
+          </motion.div>
         </div>
 
         <div className="trust-chips flex flex-wrap justify-center gap-2.5 mb-10">

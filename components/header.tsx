@@ -7,7 +7,8 @@ import gsap from "gsap"
 import { useRef } from "react"
 import { ArrowRight, FileText } from "lucide-react"
 import Image from "next/image"
-import { landingLinks } from "@/lib/landing-content"
+import { WaitlistTrigger } from "@/components/waitlist-trigger"
+import { WhitepaperComingSoon } from "@/components/whitepaper-coming-soon"
 
 export function Header() {
   const headerRef = useRef(null)
@@ -45,27 +46,21 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <TransitionLink href={landingLinks.documentation}>
-            <motion.button
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <WhitepaperComingSoon
               className="hidden sm:flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-sm text-white font-medium py-2 px-3.5 rounded-full hover:bg-white/20 transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <FileText size={16} />
-              Docs
-            </motion.button>
-          </TransitionLink>
+              label="Whitepaper"
+              icon={<FileText size={16} />}
+            />
+          </motion.div>
 
-          <TransitionLink href={landingLinks.earlyAccess}>
-            <motion.button
-              className="bg-gradient-to-r from-cyan-500 to-blue-600 text-sm text-white font-semibold py-2 px-4 rounded-full hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <ArrowRight size={16} className="sm:hidden" />
-              <span className="hidden sm:inline">Early Access</span>
-            </motion.button>
-          </TransitionLink>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <WaitlistTrigger
+              buttonClassName="bg-gradient-to-r from-cyan-500 to-blue-600 text-sm text-white font-semibold py-2 px-4 rounded-full hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300"
+              label="Early Access"
+              icon={<ArrowRight size={16} className="sm:hidden" />}
+            />
+          </motion.div>
         </div>
       </div>
     </motion.header>

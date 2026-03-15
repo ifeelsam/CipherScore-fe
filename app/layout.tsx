@@ -6,6 +6,7 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { GsapProvider } from "@/components/gsap-provider"
 import { TransitionProvider } from "@/components/transition-provider"
+import { Toaster } from "@/components/ui/toaster"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -32,6 +33,7 @@ export default function RootLayout({
             <Header />
             <main>{children}</main>
             <Footer />
+            <Toaster />
           </TransitionProvider>
         </GsapProvider>
       </body>
