@@ -3,7 +3,6 @@ import { NextResponse } from "next/server"
 type WaitlistPayload = {
   name?: string
   email?: string
-  project?: string
 }
 
 function isValidEmail(email: string) {
@@ -50,7 +49,6 @@ export async function POST(request: Request) {
   const body = (await request.json()) as WaitlistPayload
   const name = body.name?.trim() || ""
   const email = body.email?.trim().toLowerCase() || ""
-  const project = body.project?.trim() || ""
 
   if (!name || !email) {
     return NextResponse.json({ error: "Name and email are required." }, { status: 400 })
@@ -79,8 +77,6 @@ export async function POST(request: Request) {
 
 We've added you to the CipherScore early-access waitlist. We'll reach out as soon as private onboarding opens.
 
-Project notes: ${project || "None provided."}
-
 CipherScore`
 
   const notifyEmail = process.env.WAITLIST_NOTIFY_EMAIL
@@ -101,10 +97,9 @@ CipherScore`
               <h1>New waitlist signup</h1>
               <p><strong>Name:</strong> ${name}</p>
               <p><strong>Email:</strong> ${email}</p>
-              <p><strong>Project:</strong> ${project || "None provided."}</p>
             </div>
           `,
-          text: `New waitlist signup\n\nName: ${name}\nEmail: ${email}\nProject: ${project || "None provided."}`,
+          text: `New waitlist signup\n\nName: ${name}\nEmail: ${email}`,
         })
       : Promise.resolve(false),
   ])

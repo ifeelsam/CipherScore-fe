@@ -5,7 +5,6 @@ import { Loader2 } from "lucide-react"
 import { toast } from "@/hooks/use-toast"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
 import {
   Dialog,
   DialogContent,
@@ -25,7 +24,6 @@ export function WaitlistTrigger({ buttonClassName, label, icon }: WaitlistTrigge
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
-  const [project, setProject] = useState("")
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -40,7 +38,6 @@ export function WaitlistTrigger({ buttonClassName, label, icon }: WaitlistTrigge
         body: JSON.stringify({
           name,
           email,
-          project,
         }),
       })
 
@@ -58,7 +55,6 @@ export function WaitlistTrigger({ buttonClassName, label, icon }: WaitlistTrigge
       setOpen(false)
       setName("")
       setEmail("")
-      setProject("")
     } catch (error) {
       toast({
         title: "Something went wrong",
@@ -78,27 +74,28 @@ export function WaitlistTrigger({ buttonClassName, label, icon }: WaitlistTrigge
       </button>
 
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="max-w-xl overflow-hidden rounded-[28px] border border-white/12 bg-[linear-gradient(145deg,rgba(18,24,38,0.9),rgba(10,10,16,0.82))] p-6 text-white shadow-[0_24px_80px_rgba(0,0,0,0.45)] backdrop-blur-2xl md:p-7">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.14),transparent_38%),radial-gradient(circle_at_bottom_right,rgba(168,85,247,0.16),transparent_40%)]" />
+        <DialogContent className="max-w-lg overflow-hidden rounded-[30px] border border-cyan-400/10 bg-[linear-gradient(180deg,rgba(7,10,18,0.94),rgba(8,8,14,0.92))] p-6 text-white shadow-[0_30px_120px_rgba(0,0,0,0.6)] backdrop-blur-3xl md:p-7">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.12),transparent_34%),radial-gradient(circle_at_top_right,rgba(59,130,246,0.08),transparent_32%),radial-gradient(circle_at_bottom_right,rgba(139,92,246,0.14),transparent_40%)]" />
+          <div className="pointer-events-none absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-cyan-300/40 to-transparent" />
           <div className="relative">
             <DialogHeader className="text-left">
-              <div className="inline-flex w-fit items-center rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.24em] text-cyan-200">
+              <div className="inline-flex w-fit items-center rounded-full border border-cyan-400/20 bg-cyan-400/8 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.24em] text-cyan-200">
                 Early access
               </div>
-              <DialogTitle className="pt-3 text-2xl md:text-3xl text-white">Request early access</DialogTitle>
-              <DialogDescription className="max-w-lg text-sm md:text-base leading-relaxed text-neutral-300">
-                Join the CipherScore waitlist for private onboarding and early launch access.
+              <DialogTitle className="pt-3 text-2xl md:text-[2rem] text-white">Request early access</DialogTitle>
+              <DialogDescription className="max-w-md text-sm md:text-base leading-relaxed text-neutral-300">
+                Join the CipherScore waitlist for private onboarding when access opens.
               </DialogDescription>
             </DialogHeader>
 
-            <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
-              <div className="grid gap-4 md:grid-cols-2">
+            <form className="mt-7 space-y-4" onSubmit={handleSubmit}>
+              <div className="grid gap-4">
                 <Input
                   value={name}
                   onChange={(event) => setName(event.target.value)}
                   placeholder="Your name"
                   required
-                  className="h-11 rounded-xl border-white/10 bg-white/6 text-white placeholder:text-neutral-500 focus-visible:ring-cyan-400/40"
+                  className="h-12 rounded-2xl border-white/8 bg-white/5 text-white placeholder:text-neutral-500 focus-visible:ring-cyan-400/30 focus-visible:ring-offset-0"
                 />
                 <Input
                   value={email}
@@ -106,26 +103,21 @@ export function WaitlistTrigger({ buttonClassName, label, icon }: WaitlistTrigge
                   type="email"
                   placeholder="Email address"
                   required
-                  className="h-11 rounded-xl border-white/10 bg-white/6 text-white placeholder:text-neutral-500 focus-visible:ring-cyan-400/40"
+                  className="h-12 rounded-2xl border-white/8 bg-white/5 text-white placeholder:text-neutral-500 focus-visible:ring-cyan-400/30 focus-visible:ring-offset-0"
                 />
               </div>
 
-              <Textarea
-                value={project}
-                onChange={(event) => setProject(event.target.value)}
-                placeholder="What are you building or planning to launch?"
-                rows={4}
-                className="rounded-2xl border-white/10 bg-white/6 text-white placeholder:text-neutral-500 focus-visible:ring-cyan-400/40"
-              />
-
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <div className="px-4 py-0">
                 <p className="text-xs leading-relaxed text-neutral-400">
-                  Share a little context if you want us to prioritize the right launch flow.
+                  We will only use this to manage waitlist access and onboarding updates.
                 </p>
+              </div>
+
+              <div className="flex justify-end pt-1">
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 px-5 text-white hover:from-cyan-400 hover:to-blue-500"
+                  className="h-11 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 px-6 text-white shadow-[0_10px_30px_rgba(6,182,212,0.22)] hover:from-cyan-400 hover:to-blue-500"
                 >
                   {isSubmitting ? <Loader2 className="animate-spin" /> : null}
                   {isSubmitting ? "Submitting..." : "Join waitlist"}
