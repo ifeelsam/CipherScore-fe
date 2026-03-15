@@ -61,22 +61,16 @@ export async function POST(request: Request) {
   }
 
   const confirmationHtml = `
-    <div style="font-family: Inter, Arial, sans-serif; color: #ffffff; background: #0b0b10; padding: 32px;">
+    <div style="font-family: Inter, Arial, sans-serif; color: #ffffff; padding: 32px;">
       <h1 style="font-size: 24px; margin-bottom: 16px;">You're on the CipherScore waitlist</h1>
-      <p style="font-size: 16px; line-height: 1.6; color: #d4d4d8;">
+      <p style="font-size: 16px; line-height: 1.6;">
         Hi ${name},
       </p>
-      <p style="font-size: 16px; line-height: 1.6; color: #d4d4d8;">
+      <p style="font-size: 16px; line-height: 1.6;">
         We've added you to the CipherScore early-access waitlist. We'll reach out as soon as private onboarding opens.
       </p>
-      <p style="font-size: 16px; line-height: 1.6; color: #d4d4d8;">
-        If you shared launch context, we've captured it for the team:
-      </p>
-      <p style="font-size: 16px; line-height: 1.6; color: #67e8f9;">
-        ${project || "No additional project notes were included."}
-      </p>
-      <p style="font-size: 16px; line-height: 1.6; color: #d4d4d8;">
-        CipherScore
+      <p style="font-size: 16px; line-height: 1.6;">
+        Team CipherScore <3
       </p>
     </div>
   `
