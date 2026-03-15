@@ -5,11 +5,18 @@ import { motion } from "framer-motion"
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
 import { useRef } from "react"
-import { FileText, LogIn } from "lucide-react"
+import { ArrowRight, FileText } from "lucide-react"
 import Image from "next/image"
+import { landingLinks } from "@/lib/landing-content"
 
 export function Header() {
   const headerRef = useRef(null)
+  const navItems = [
+    { href: "/#features", label: "Features" },
+    { href: "/#how-it-works", label: "How It Works" },
+    { href: "/#use-cases", label: "Use Cases" },
+    { href: "/#developers", label: "Developers" },
+  ]
 
   useGSAP(() => {
     gsap.from(headerRef.current, {
@@ -22,32 +29,25 @@ export function Header() {
   }, [])
 
   return (
-    <motion.header ref={headerRef} className="fixed top-0 left-0 right-0 z-50 p-4">
-      <div className="container mx-auto flex justify-between items-center bg-black/20 backdrop-blur-md border border-white/10 p-4 rounded-full">
-        <TransitionLink href="/" className="text-white font-bold text-xl flex items-center gap-2">
-          <Image src="/favicon.png" alt="CipherScore logo" width={32} height={32} className="rounded" />
+    <motion.header ref={headerRef} className="fixed top-0 left-0 right-0 z-50 px-4 py-3">
+      <div className="container mx-auto flex justify-between items-center bg-black/20 backdrop-blur-md border border-white/10 px-4 py-3 rounded-full">
+        <TransitionLink href="/" className="text-white font-bold text-lg md:text-xl flex items-center gap-2">
+          <Image src="/favicon.png" alt="CipherScore logo" width={28} height={28} className="rounded" />
           CipherScore
         </TransitionLink>
 
-        <nav className="hidden md:flex items-center gap-6 text-white">
-          <TransitionLink href="/#features" className="hover:text-cyan-400 transition-colors">
-            Features
-          </TransitionLink>
-          <TransitionLink href="/#how-it-works" className="hover:text-cyan-400 transition-colors">
-            How It Works
-          </TransitionLink>
-          <TransitionLink href="/#api" className="hover:text-cyan-400 transition-colors">
-            API
-          </TransitionLink>
-          <TransitionLink href="/#use-cases" className="hover:text-cyan-400 transition-colors">
-            Use Cases
-          </TransitionLink>
+        <nav className="hidden md:flex items-center gap-5 text-sm text-white">
+          {navItems.map((item) => (
+            <TransitionLink key={item.href} href={item.href} className="hover:text-cyan-400 transition-colors">
+              {item.label}
+            </TransitionLink>
+          ))}
         </nav>
 
         <div className="flex items-center gap-3">
-          <TransitionLink href="https://dash.CipherScore.xyz/docs">
+          <TransitionLink href={landingLinks.documentation}>
             <motion.button
-              className="hidden sm:flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium py-2 px-4 rounded-full hover:bg-white/20 transition-all duration-300"
+              className="hidden sm:flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-sm text-white font-medium py-2 px-3.5 rounded-full hover:bg-white/20 transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -56,14 +56,14 @@ export function Header() {
             </motion.button>
           </TransitionLink>
 
-          <TransitionLink href="https://dash.cipherscore.xyz">
+          <TransitionLink href={landingLinks.earlyAccess}>
             <motion.button
-              className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold py-2 px-5 rounded-full hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300"
+              className="bg-gradient-to-r from-cyan-500 to-blue-600 text-sm text-white font-semibold py-2 px-4 rounded-full hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <LogIn size={16} className="sm:hidden" />
-              <span className="hidden sm:inline">Login</span>
+              <ArrowRight size={16} className="sm:hidden" />
+              <span className="hidden sm:inline">Early Access</span>
             </motion.button>
           </TransitionLink>
         </div>

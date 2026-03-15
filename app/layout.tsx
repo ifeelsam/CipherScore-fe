@@ -10,13 +10,13 @@ import { TransitionProvider } from "@/components/transition-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "CipherScore - Privacy-Preserving Credit Scores for Web3",
+  title: "CipherScore - Private Eligibility and Reputation for Solana",
   description:
-    "Encrypted credit scoring API for Web3 developers. Compute privacy-first scores via MPC—no raw data ever leaves the wallet.",
-    generator: 'v0.app',
-    icons: {
-      icon: "/favicon.png",
-    }
+    "Privacy-preserving eligibility and reputation proofs for Solana DAOs, token launches, airdrops, and governance powered by Arcium MPC.",
+  generator: "v0.app",
+  icons: {
+    icon: "/favicon.png",
+  },
 }
 
 export default function RootLayout({

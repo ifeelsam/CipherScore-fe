@@ -7,7 +7,8 @@ import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
 import { Scene } from "@/components/scene"
 import { TransitionLink } from "@/components/transition-link"
-import { FileText, LogIn, Shield, Lock, Zap } from "lucide-react"
+import { ArrowRight, FileText, Network, ShieldCheck, Sparkles } from "lucide-react"
+import { heroContent, landingLinks } from "@/lib/landing-content"
 
 export function Hero() {
   const container = useRef(null)
@@ -43,7 +44,7 @@ export function Hero() {
     { scope: container },
   )
 
-  const title = "Encrypted Credit Scores for DeFi Protocols"
+  const title = heroContent.title
   const splitTitle = title.split(" ").map((word, i) => (
     <span key={i} className="inline-block overflow-hidden">
       <span className="inline-block">{word}&nbsp;</span>
@@ -62,81 +63,84 @@ export function Hero() {
 
       <div className="absolute inset-0 z-5 bg-gradient-to-b from-black/20 via-transparent to-black/40" />
 
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen text-white text-center px-4 py-20">
-        <h1 className="hero-title font-bold text-4xl md:text-6xl lg:text-7xl mb-6 max-w-5xl leading-tight">
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen text-white text-center px-4 pt-32 pb-16 md:pt-36 md:pb-20">
+        <h1 className="hero-title font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl mb-5 max-w-4xl leading-[1.05]">
           {splitTitle}
         </h1>
 
         <motion.p
-          className="hero-subtitle text-lg md:text-xl lg:text-2xl max-w-3xl mb-8 text-neutral-300"
+          className="hero-subtitle text-base sm:text-lg lg:text-xl max-w-2xl mb-7 text-neutral-300 leading-relaxed"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 1 }}
         >
-          Compute privacy-first scores via MPC—no raw data ever leaves the wallet.
+          {heroContent.subtitle}
         </motion.p>
 
-        <div className="hero-buttons flex flex-col sm:flex-row gap-4 mb-12">
-          <TransitionLink href="https://dash.cipherScore.xyz">
+        <div className="hero-buttons flex flex-col sm:flex-row gap-3 mb-10">
+          <TransitionLink href={landingLinks.earlyAccess}>
             <motion.button
-              className="flex items-center gap-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/25"
+              className="flex items-center justify-center gap-2.5 bg-gradient-to-r from-cyan-500 to-blue-600 text-sm md:text-base text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/25"
               whileHover={{ scale: 1.05, transition: { type: "spring", stiffness: 300 } }}
               whileTap={{ scale: 0.95 }}
             >
-              <LogIn size={20} />
-              Login
+              <ArrowRight size={18} />
+              Request Early Access
             </motion.button>
           </TransitionLink>
 
-          <TransitionLink href="https://dash.cipherScore.xyz/docs">
+          <TransitionLink href={landingLinks.whitepaper}>
             <motion.button
-              className="flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 hover:bg-white/20 hover:shadow-lg hover:shadow-white/10"
+              className="flex items-center justify-center gap-2.5 bg-white/10 backdrop-blur-sm border border-white/20 text-sm md:text-base text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 hover:bg-white/20 hover:shadow-lg hover:shadow-white/10"
               whileHover={{ scale: 1.05, transition: { type: "spring", stiffness: 300 } }}
               whileTap={{ scale: 0.95 }}
             >
-              <FileText size={20} />
-              Docs
+              <FileText size={18} />
+              Read the Whitepaper
             </motion.button>
           </TransitionLink>
         </div>
 
-        <div className="trust-chips flex flex-wrap justify-center gap-3 mb-12">
-          <div className="flex items-center gap-2 bg-black/30 backdrop-blur-sm border border-emerald-500/30 text-emerald-400 px-4 py-2 rounded-full text-sm">
-            <Shield size={16} />
-            Client-side encrypted
+        <div className="trust-chips flex flex-wrap justify-center gap-2.5 mb-10">
+          <div className="flex items-center gap-2 bg-black/30 backdrop-blur-sm border border-emerald-500/30 text-emerald-400 px-3.5 py-2 rounded-full text-xs sm:text-sm">
+            <ShieldCheck size={16} />
+            {heroContent.chips[0]}
           </div>
-          <div className="flex items-center gap-2 bg-black/30 backdrop-blur-sm border border-purple-500/30 text-purple-400 px-4 py-2 rounded-full text-sm">
-            <Zap size={16} />
-            Arcium MXE Powered
+          <div className="flex items-center gap-2 bg-black/30 backdrop-blur-sm border border-purple-500/30 text-purple-400 px-3.5 py-2 rounded-full text-xs sm:text-sm">
+            <Network size={16} />
+            {heroContent.chips[1]}
           </div>
-          <div className="flex items-center gap-2 bg-black/30 backdrop-blur-sm border border-cyan-500/30 text-cyan-400 px-4 py-2 rounded-full text-sm">
-            <Lock size={16} />
-            Zero data exposure
+          <div className="flex items-center gap-2 bg-black/30 backdrop-blur-sm border border-cyan-500/30 text-cyan-400 px-3.5 py-2 rounded-full text-xs sm:text-sm">
+            <Sparkles size={16} />
+            {heroContent.chips[2]}
           </div>
         </div>
 
-        <div className="holo-panel bg-black/20 backdrop-blur-md border border-white/10 rounded-3xl p-8 max-w-4xl w-full">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
+        <div className="holo-panel bg-black/20 backdrop-blur-md border border-white/10 rounded-3xl p-6 md:p-7 max-w-4xl w-full">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
             <div className="text-left">
-              <div className="bg-black/40 backdrop-blur-sm border border-cyan-500/30 rounded-2xl p-6 font-mono text-sm">
-                <div className="text-cyan-400 mb-2">// Privacy-first credit scoring</div>
+              <div className="bg-black/40 backdrop-blur-sm border border-cyan-500/30 rounded-2xl p-5 md:p-6 font-mono text-xs sm:text-sm">
+                <div className="text-cyan-400 mb-2">// Private eligibility attestation</div>
                 <div className="text-white">
-                  <span className="text-purple-400">const</span> score = <span className="text-yellow-400">await</span>{" "}
+                  <span className="text-purple-400">const</span> attestation = <span className="text-yellow-400">await</span>{" "}
                   <span className="text-cyan-400">cipherScore</span>.<span className="text-green-400">compute</span>(
                   {"{"}
                 </div>
                 <div className="text-white ml-4">
-                  wallet: <span className="text-orange-400">"0x..."</span>,
+                  ruleSetId: <span className="text-orange-400">"superteam-launch"</span>,
                 </div>
                 <div className="text-white ml-4">
-                  encrypted: <span className="text-green-400">true</span>
+                  wallets: <span className="text-green-400">["solana", "evm"]</span>,
+                </div>
+                <div className="text-white ml-4">
+                  privacy: <span className="text-green-400">"mpc"</span>
                 </div>
                 <div className="text-white">{"}"});</div>
               </div>
             </div>
 
             <div className="flex justify-center">
-              <div className="relative w-48 h-48">
+              <div className="relative w-44 h-44 sm:w-48 sm:h-48 lg:w-52 lg:h-52">
                 <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
                   <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="2" />
                   <circle
@@ -147,7 +151,7 @@ export function Hero() {
                     stroke="url(#scoreGradient)"
                     strokeWidth="3"
                     strokeDasharray="283"
-                    strokeDashoffset="85"
+                    strokeDashoffset="45"
                     className="transition-all duration-2000"
                   />
                   <defs>
@@ -158,10 +162,25 @@ export function Hero() {
                   </defs>
                 </svg>
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <div className="text-4xl font-bold text-white">750</div>
-                  <div className="text-sm text-neutral-400">Credit Score</div>
+                  <div className="text-2xl sm:text-3xl font-bold text-white">ELIGIBLE</div>
+                  <div className="text-sm text-neutral-400">Private verdict only</div>
                 </div>
               </div>
+            </div>
+          </div>
+
+          <div className="mt-5 grid gap-3 md:grid-cols-3 text-left">
+            <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
+              <div className="text-xs sm:text-sm text-neutral-400">Signals</div>
+              <div className="mt-1 text-sm sm:text-base text-white font-semibold">Wallets, socials, credentials</div>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
+              <div className="text-xs sm:text-sm text-neutral-400">Rules</div>
+              <div className="mt-1 text-sm sm:text-base text-white font-semibold">Whale caps, thresholds, tiered access</div>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
+              <div className="text-xs sm:text-sm text-neutral-400">Output</div>
+              <div className="mt-1 text-sm sm:text-base text-white font-semibold">A single attestation the DAO can verify</div>
             </div>
           </div>
         </div>
