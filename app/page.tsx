@@ -19,7 +19,7 @@ export default function Home() {
       <ComparisonSection />
       <BuiltOn />
       <DeveloperSection />
-      {/* <Testimonials /> */}
+      <Testimonials />
     </>
   )
 }
