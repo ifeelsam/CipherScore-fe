@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
+import oneDark from "react-syntax-highlighter/dist/esm/styles/prism/one-dark"
 import { TransitionLink } from "@/components/transition-link"
 import { developerSnippet, landingLinks } from "@/lib/landing-content"
 
@@ -37,9 +39,22 @@ export function DeveloperSection() {
             viewport={{ once: true }}
           >
             <div className="text-cyan-400 text-sm mb-4">// TypeScript SDK</div>
-            <pre className="overflow-x-auto text-xs sm:text-sm md:text-base leading-6 md:leading-7 text-neutral-100">
-              <code>{developerSnippet}</code>
-            </pre>
+            <SyntaxHighlighter
+              language="typescript"
+              style={oneDark}
+              customStyle={{
+                margin: 0,
+                padding: 0,
+                background: "transparent",
+                fontSize: "inherit",
+                lineHeight: 1.6,
+              }}
+              codeTagProps={{ className: "text-xs sm:text-sm md:text-base" }}
+              showLineNumbers={false}
+              PreTag="div"
+            >
+              {developerSnippet}
+            </SyntaxHighlighter>
           </motion.div>
         </div>
       </div>
