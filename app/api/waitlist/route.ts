@@ -61,15 +61,15 @@ export async function POST(request: Request) {
   }
 
   const confirmationHtml = `
-    <div style="font-family: Inter, Arial, sans-serif; background: #17171a; color: #ffffff; padding: 32px;">
-      <h1 style="font-size: 24px; margin-bottom: 16px; color: #ffffff;">You're on the CipherScore waitlist</h1>
-      <p style="font-size: 16px; line-height: 1.6; color: #ffffff;">
+    <div style="font-family: Inter, Arial, sans-serif; color: #000;">
+      <h1 style="font-size: 24px; margin-bottom: 16px; color: #000;">You're on the CipherScore waitlist</h1>
+      <p style="font-size: 16px; line-height: 1.6; color: #000;">
         Hi ${name},
       </p>
-      <p style="font-size: 16px; line-height: 1.6; color: #ffffff;">
+      <p style="font-size: 16px; line-height: 1.6; color: #000;">
         We've added you to the CipherScore early-access waitlist. We'll reach out as soon as private onboarding opens.
       </p>
-      <p style="font-size: 16px; line-height: 1.6; color: #ffffff;">
+      <p style="font-size: 16px; line-height: 1.6; color: #000;">
         Team CipherScore &lt;3
       </p>
     </div>
