@@ -46,13 +46,13 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+          {/* <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <WhitepaperComingSoon
               className="hidden sm:flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-sm text-white font-medium py-2 px-3.5 rounded-full hover:bg-white/20 transition-all duration-300"
               label="Whitepaper"
               icon={<FileText size={16} />}
             />
-          </motion.div>
+          </motion.div> */}
 
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <WaitlistTrigger
