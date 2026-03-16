@@ -145,14 +145,6 @@ export const poweredBy = [
     name: "Arcium",
     description: "MPC computation layer that verifies encrypted eligibility signals without exposing raw data.",
   },
-  // {
-  //   name: "Superteam India",
-  //   description: "Ecosystem partner supporting Solana-native distribution and founder feedback loops.",
-  // },
-  // {
-  //   name: "Pilot DAO",
-  //   description: "Logo placeholder reserved for live integrations once pilots are publicly confirmed.",
-  // },
 ] as const
 
 export const developerSnippet = `// Request attestation for a user

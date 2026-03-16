@@ -122,7 +122,7 @@ export function Hero() {
                   {"{"}
                 </div>
                 <div className="text-white ml-4">
-                  ruleSetId: <span className="text-orange-400">"superteam-launch"</span>,
+                  ruleSetId: <span className="text-orange-400">"dao-launch-v1"</span>,
                 </div>
                 <div className="text-white ml-4">
                   wallets: <span className="text-green-400">["solana", "evm"]</span>,
@@ -135,30 +135,43 @@ export function Hero() {
             </div>
 
             <div className="flex justify-center">
-              <div className="relative w-44 h-44 sm:w-48 sm:h-48 lg:w-52 lg:h-52">
-                <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
-                  <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="2" />
-                  <circle
-                    cx="50"
-                    cy="50"
-                    r="45"
-                    fill="none"
-                    stroke="url(#scoreGradient)"
-                    strokeWidth="3"
-                    strokeDasharray="283"
-                    strokeDashoffset="45"
-                    className="transition-all duration-2000"
-                  />
-                  <defs>
-                    <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="#06b6d4" />
-                      <stop offset="100%" stopColor="#3b82f6" />
-                    </linearGradient>
-                  </defs>
-                </svg>
-                <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <div className="text-2xl sm:text-3xl font-bold text-white">ELIGIBLE</div>
-                  <div className="text-sm text-neutral-400">Private verdict only</div>
+              <div className="w-full max-w-sm rounded-[28px] border border-cyan-500/15 bg-[linear-gradient(180deg,rgba(8,12,20,0.92),rgba(7,9,16,0.86))] p-5 shadow-[0_24px_80px_rgba(0,0,0,0.45)]">
+                <div className="flex items-center justify-between border-b border-white/8 pb-4">
+                  <div>
+                    <div className="text-xs uppercase tracking-[0.22em] text-cyan-300/80">Eligibility check</div>
+                    <div className="mt-1 text-lg font-semibold text-white">Private attestation flow</div>
+                  </div>
+                  <div className="rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-300">
+                    MPC live
+                  </div>
+                </div>
+
+                <div className="mt-5 space-y-3 text-left">
+                  <div className="rounded-2xl border border-white/8 bg-white/[0.03] p-4">
+                    <div className="text-xs uppercase tracking-[0.18em] text-neutral-500">Input</div>
+                    <div className="mt-2 text-sm font-medium text-white">Wallet activity, socials, credentials</div>
+                  </div>
+                  <div className="flex items-center justify-center text-cyan-400/70 text-xs uppercase tracking-[0.24em]">
+                    encrypted and split across nodes
+                  </div>
+                  <div className="rounded-2xl border border-cyan-500/15 bg-cyan-500/[0.04] p-4">
+                    <div className="text-xs uppercase tracking-[0.18em] text-cyan-300/80">Rules</div>
+                    <div className="mt-2 text-sm font-medium text-white">Activity thresholds, whale caps, allocation tiers</div>
+                  </div>
+                  <div className="flex items-center justify-center text-purple-400/70 text-xs uppercase tracking-[0.24em]">
+                    private verification result
+                  </div>
+                  <div className="rounded-2xl border border-emerald-500/15 bg-emerald-500/[0.05] p-4">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <div className="text-xs uppercase tracking-[0.18em] text-emerald-300/80">Output</div>
+                        <div className="mt-2 text-base font-semibold text-white">Attestation ready to verify</div>
+                      </div>
+                      <div className="rounded-full bg-emerald-500/10 px-3 py-1 text-sm font-semibold text-emerald-300">
+                        Eligible
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
