@@ -6,7 +6,7 @@ import { motion } from "framer-motion"
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
 import { Scene } from "@/components/scene"
-import { ArrowRight, BadgeCheck, FileText, Network, ShieldCheck, SlidersHorizontal, Sparkles, WalletCards } from "lucide-react"
+import { ArrowRight, FileText, Network, ShieldCheck, Sparkles } from "lucide-react"
 import { heroContent } from "@/lib/landing-content"
 import { WaitlistTrigger } from "@/components/waitlist-trigger"
 import { WhitepaperComingSoon } from "@/components/whitepaper-coming-soon"
@@ -118,113 +118,45 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="holo-panel bg-black/20 backdrop-blur-md border border-white/10 rounded-3xl p-4 md:p-6 max-w-5xl w-full">
-          <div className="relative overflow-hidden rounded-[30px] border border-white/8 bg-[linear-gradient(180deg,rgba(5,8,16,0.92),rgba(5,7,13,0.84))] px-4 py-5 md:px-7 md:py-7 shadow-[0_30px_100px_rgba(0,0,0,0.45)]">
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.12),transparent_28%),radial-gradient(circle_at_top_right,rgba(59,130,246,0.1),transparent_24%),radial-gradient(circle_at_bottom_center,rgba(168,85,247,0.12),transparent_32%)]" />
-            <div className="relative">
-              <div className="flex flex-col gap-4 border-b border-white/8 pb-5 text-left md:flex-row md:items-end md:justify-between">
-                <div>
-                  <div className="text-[11px] uppercase tracking-[0.32em] text-cyan-300/80">Eligibility pipeline</div>
-                  <div className="mt-2 text-2xl md:text-3xl font-semibold text-white">One private flow from signals to on-chain verification</div>
+        <div className="holo-panel bg-black/20 backdrop-blur-md border border-white/10 rounded-3xl p-6 md:p-7 max-w-4xl w-full">
+          <div className="text-left ">
+            <div className="bg-black/40 backdrop-blur-sm border border-cyan-500/30 rounded-2xl p-5 md:p-6 font-mono text-xs sm:text-sm">
+              <div className="mx-auto max-w-2xl">
+                <div className="text-cyan-400 mb-2">// Private eligibility attestation</div>
+                <div className="text-white">
+                  <span className="text-purple-400">const</span> attestation = <span className="text-yellow-400">await</span>{" "}
+                  <span className="text-cyan-400">cipherScore</span>.<span className="text-green-400">compute</span>(
+                  {"{"}
                 </div>
-                <div className="flex items-center gap-2 self-start rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3.5 py-1.5 text-xs font-medium text-emerald-300 md:self-auto">
-                  <ShieldCheck size={14} />
-                  MPC-secured verdict
+                <div className="text-white ml-4">
+                  ruleSetId: <span className="text-orange-400">"dao-launch-v1"</span>,
                 </div>
+                <div className="text-white ml-4">
+                  wallets: <span className="text-green-400">["solana", "evm"]</span>,
+                </div>
+                <div className="text-white ml-4">
+                  signals: <span className="text-green-400">["socials", "credentials"]</span>,
+                </div>
+                <div className="text-white ml-4">
+                  privacy: <span className="text-green-400">"mpc"</span>
+                </div>
+                <div className="text-white">{"}"});</div>
               </div>
+            </div>
+          </div>
 
-              <div className="mt-6 grid gap-4 lg:grid-cols-[1fr_auto_1fr_auto_1fr] lg:items-stretch">
-                <div className="rounded-[26px] border border-cyan-500/20 bg-[linear-gradient(180deg,rgba(16,28,38,0.56),rgba(9,14,22,0.72))] p-5 text-left">
-                  <div className="flex items-center justify-between">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-cyan-500/12 text-cyan-300">
-                      <WalletCards size={20} />
-                    </div>
-                    <div className="text-[11px] uppercase tracking-[0.24em] text-cyan-300/70">Step 01</div>
-                  </div>
-                  <div className="mt-5 text-xs uppercase tracking-[0.24em] text-neutral-500">Signals</div>
-                  <div className="mt-2 text-xl font-semibold text-white">Connected identity inputs</div>
-                  <p className="mt-3 text-sm leading-relaxed text-neutral-300">
-                    Wallet history, social verification, and credentials come together in one encrypted profile.
-                  </p>
-                  <div className="mt-5 flex flex-wrap gap-2 text-xs text-neutral-300">
-                    <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5">Solana + EVM wallets</span>
-                    <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5">X / Discord / GitHub</span>
-                  </div>
-                </div>
-
-                <div className="hidden lg:flex items-center justify-center px-1">
-                  <div className="h-[2px] w-12 bg-gradient-to-r from-cyan-400/60 to-blue-400/20" />
-                </div>
-
-                <div className="rounded-[26px] border border-purple-500/18 bg-[linear-gradient(180deg,rgba(17,14,34,0.62),rgba(9,10,22,0.78))] p-5 text-left">
-                  <div className="flex items-center justify-between">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-purple-500/12 text-purple-300">
-                      <Network size={20} />
-                    </div>
-                    <div className="text-[11px] uppercase tracking-[0.24em] text-purple-300/70">Step 02</div>
-                  </div>
-                  <div className="mt-5 text-xs uppercase tracking-[0.24em] text-neutral-500">Compute</div>
-                  <div className="mt-2 text-xl font-semibold text-white">Arcium MPC evaluates the rules</div>
-                  <p className="mt-3 text-sm leading-relaxed text-neutral-300">
-                    DAO thresholds, whale caps, and allocation logic are computed privately across MPC nodes.
-                  </p>
-                  <div className="mt-5 rounded-2xl border border-white/8 bg-black/20 px-4 py-3">
-                    <div className="text-[11px] uppercase tracking-[0.22em] text-purple-300/70">Private compute state</div>
-                    <div className="mt-2 text-sm font-medium text-white">Encrypted and split across nodes</div>
-                  </div>
-                </div>
-
-                <div className="hidden lg:flex items-center justify-center px-1">
-                  <div className="h-[2px] w-12 bg-gradient-to-r from-purple-400/50 to-emerald-400/30" />
-                </div>
-
-                <div className="rounded-[26px] border border-emerald-500/18 bg-[linear-gradient(180deg,rgba(8,32,28,0.58),rgba(6,17,16,0.82))] p-5 text-left">
-                  <div className="flex items-center justify-between">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-500/12 text-emerald-300">
-                      <BadgeCheck size={20} />
-                    </div>
-                    <div className="text-[11px] uppercase tracking-[0.24em] text-emerald-300/70">Step 03</div>
-                  </div>
-                  <div className="mt-5 text-xs uppercase tracking-[0.24em] text-neutral-500">Output</div>
-                  <div className="mt-2 text-xl font-semibold text-white">Attestation ready for the launch contract</div>
-                  <p className="mt-3 text-sm leading-relaxed text-neutral-300">
-                    The app or contract receives a private eligibility verdict without exposing the underlying user data.
-                  </p>
-                  <div className="mt-5 flex items-center justify-between rounded-2xl border border-emerald-500/15 bg-emerald-500/[0.05] px-4 py-3">
-                    <div>
-                      <div className="text-[11px] uppercase tracking-[0.22em] text-emerald-300/70">Verifier</div>
-                      <div className="mt-1 text-sm font-medium text-white">Launch contract accepts attestation</div>
-                    </div>
-                    <div className="rounded-full bg-emerald-500/12 px-3 py-1.5 text-sm font-semibold text-emerald-300">
-                      Eligible
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-5 grid gap-3 md:grid-cols-3">
-                <div className="rounded-2xl border border-white/8 bg-white/[0.03] p-4 text-left">
-                  <div className="flex items-center gap-2 text-sm font-medium text-white">
-                    <WalletCards size={16} className="text-cyan-300" />
-                    Signals
-                  </div>
-                  <p className="mt-2 text-sm leading-relaxed text-neutral-400">Wallets, socials, and credentials live in one portable reputation profile.</p>
-                </div>
-                <div className="rounded-2xl border border-white/8 bg-white/[0.03] p-4 text-left">
-                  <div className="flex items-center gap-2 text-sm font-medium text-white">
-                    <SlidersHorizontal size={16} className="text-purple-300" />
-                    Rules
-                  </div>
-                  <p className="mt-2 text-sm leading-relaxed text-neutral-400">DAO teams set access thresholds, anti-whale logic, and distribution tiers without code.</p>
-                </div>
-                <div className="rounded-2xl border border-white/8 bg-white/[0.03] p-4 text-left">
-                  <div className="flex items-center gap-2 text-sm font-medium text-white">
-                    <BadgeCheck size={16} className="text-emerald-300" />
-                    Output
-                  </div>
-                  <p className="mt-2 text-sm leading-relaxed text-neutral-400">Only the attestation result reaches the app, verifier, or launch contract.</p>
-                </div>
-              </div>
+          <div className="mt-5 grid gap-3 md:grid-cols-3 text-left">
+            <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
+              <div className="text-xs sm:text-sm text-neutral-400">Signals</div>
+              <div className="mt-1 text-sm sm:text-base text-white font-semibold">Wallets, socials, credentials</div>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
+              <div className="text-xs sm:text-sm text-neutral-400">Rules</div>
+              <div className="mt-1 text-sm sm:text-base text-white font-semibold">Whale caps, thresholds, tiered access</div>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
+              <div className="text-xs sm:text-sm text-neutral-400">Output</div>
+              <div className="mt-1 text-sm sm:text-base text-white font-semibold">A single attestation the DAO can verify</div>
             </div>
           </div>
         </div>
